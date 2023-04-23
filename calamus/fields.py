@@ -505,10 +505,15 @@ class Nested(_JsonLDField, fields.Nested):
             # resolve Proxy object
             obj = obj.__wrapped__
 
-        if type(obj) not in self.schema["to"]:
-            ValueError("Type {} not found in field {}.{}".format(type(obj), type(self.parent), self.name))
+        schema = None
+        for klass, _schema in self.schema["to"].items():
+            if str(klass) == str(type(obj)):
+                schema = _schema
+                break
 
-        schema = self.schema["to"][type(obj)]
+        if schema is None:
+            raise ValueError("Type {} not found in field {}.{}".format(type(obj), type(self.parent), self.name))
+
         schema._top_level = False
         return schema.dump(obj)
 
