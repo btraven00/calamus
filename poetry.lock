@@ -1241,5 +1241,5 @@ docs = ["Jinja2", "sphinx", "sphinx-rtd-theme", "sphinxcontrib-spelling"]
 
 [metadata]
 lock-version = "2.0"
-python-versions = "^3.8.1"
-content-hash = "581a1681d7dccafe2f364a6b6471f6add17edb60a8e5c247783b224c92c9296e"
+python-versions = ">=3.8.1,<4.0.0"
+content-hash = "d6c7a258391d51e0da3d1e9990545af77fa7971c0847ddaa1e33dfacfe59d19e"
